@@ -20,5 +20,8 @@ jobs:
           name: cmake-build
           path: build
 
+      - name: Restore test binary permissions
+        run: chmod +x build/abs_behavior_test
+
       - name: Run tests
         run: ctest --test-dir build --output-on-failure -C Release
