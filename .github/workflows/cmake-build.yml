@@ -1,0 +1,31 @@
+name: CMake Build
+
+on:
+  workflow_call:
+    inputs:
+      upload-build-artifact:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  cmake-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Upload build artifacts
+        if: inputs.upload-build-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cmake-build
+          path: build
+          if-no-files-found: error

@@ -1,6 +1,7 @@
 # ABS
 
 [![Build](https://github.com/Mrchazaaa/ABS/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Mrchazaaa/ABS/actions/workflows/build.yml)
+[![Tests](https://github.com/Mrchazaaa/ABS/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/Mrchazaaa/ABS/actions/workflows/test.yml)
 
 Standalone ABS controller library extracted from the Charlie Robot Speed Dreams driver.
 
@@ -35,3 +36,13 @@ cmake --build build
 ```
 
 This produces the static library in `build/`.
+
+## Test
+
+Configure and build the test target with CMake, then run the suite with CTest:
+
+```bash
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
