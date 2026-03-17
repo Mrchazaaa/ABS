@@ -1,0 +1,7 @@
+#ifndef ABS_LIBRARY_TINYEKF_CONFIG_H_
+#define ABS_LIBRARY_TINYEKF_CONFIG_H_
+
+#define EKF_N 3
+#define EKF_M 3
+
+#endif  // ABS_LIBRARY_TINYEKF_CONFIG_H_
